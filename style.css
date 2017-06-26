@@ -11,8 +11,6 @@
   --green: #DAEDE2;
 }
 
-
-
 body {
   display: grid;
   margin-top: 25px;
@@ -25,4 +23,74 @@ body {
   background-color: var(--green);
 }
 
+p {
+  line-height: 1.2em;
+  margin-bottom: 1.2em;
+}
+header {
+  grid-area: header;
+  background-color: white;
+  text-align: center;
+}
+
+h1.site-title {
+  background-color: var(--red);
+  color: white;
+  font-size: 25px;
+  padding: 1em;
+  text-transform: uppercase;
+  display: inline;
+}
+
+#main-content {
+  grid-area: content;
+  background-color: var(--blue);
+  color: white;
+  font-size: 18px;
+  padding: 1em;
+  line-height: 1.2em;
+}
+
+#main-content section:first-of-type h2 {
+  grid-area: intro;
+  font-size: 7em;
+  line-height: 0.85em;
+  margin-bottom: 0.2em;
+}
+
+#main-content section:first-of-type p {
+  grid-area: intro;
+  font-size: 2em;
+  line-height: 1.2em;
+}
+
+aside#sidebar {
+  grid-area: sidebar;
+  color: white;
+}
+
+aside#sidebar h2 {
+  font-size: 3em;
+}
+
+.nav-link-list-item {
+  background-color: var(--gray);
+  font-size: 2em;
+  margin: 1em 0 0 0;
+  padding: 5% 8%;
+}
+
+.nav-link-list-item a {
+  color: white;
+  text-decoration: none;
+}
+
+article.section-content p::first-letter {
+  float: left;
+  font-size: 3.5em;
+  color: var(--green);
+  line-height: 1em;
+  padding-right: 5px;
+  margin-top: 0px;
+}
 
