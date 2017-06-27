@@ -12,12 +12,12 @@
 }
 
 body {
-  display: grid;
-  grid-gap: 1em;
+  box-sizing: border-box;
+  display: flex;
   padding: 1em;
   background-color: var(--green);
-  width: 100%;
   margin: 25px auto 0 auto;
+  width: 100%;
 }
 
 p {
@@ -25,7 +25,6 @@ p {
   margin-bottom: 1.2em;
 }
 header {
-  grid-area: header;
   background-color: white;
   text-align: center;
 }
@@ -40,7 +39,6 @@ h1.site-title {
 }
 
 #main-content {
-  grid-area: content;
   background-color: var(--blue);
   color: white;
   font-size: 18px;
@@ -49,7 +47,6 @@ h1.site-title {
 }
 
 #main-content section:first-of-type h2 {
-  grid-area: intro;
   font-size: 7em;
   line-height: 0.85em;
   margin-bottom: 0.2em;
@@ -62,7 +59,6 @@ h1.site-title {
 }
 
 aside#sidebar {
-  grid-area: sidebar;
   color: white;
 }
 
@@ -98,12 +94,12 @@ article.section-content p::first-letter {
 
 @media (max-width: 800px) {
   body {
-    grid-template-columns: 1fr;
-    grid-template-areas:  "header"
-                          "intro"
-                          "content"
-                          "sidebar";
-
+    flex-direction: column;
+    width: 400px;
+  }
+  h1.site-title {
+    font-size: 20px;
+    padding: 1em;
   }
   #main-content section:first-of-type h2 {
     font-size: 3.5em;
@@ -112,6 +108,10 @@ article.section-content p::first-letter {
   #main-content section:first-of-type p {
     font-size: 1.5em;
     line-height: 1.2em;
+  }
+  ul.nav-links {
+    display: flex;
+    flex-flow: wrap row;
   }
   .nav-link-list-item {
     font-size: 1em;
@@ -123,9 +123,22 @@ article.section-content p::first-letter {
 @media (min-width: 801px) {
   body {
     max-width: 1000px;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-areas:  "header header header"
-                          "intro intro sidebar"
-                          "content content sidebar";
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+  }
+
+  header #main-content aside#sidebar {
+    flex: 1 100%;
+    order: 0;
+  }
+
+  #main-content {
+    flex: 1 auto;
+    order: 1;
+  }
+  aside#sidebar {
+    flex: 1 auto;
+    order: 2;
   }
 }
